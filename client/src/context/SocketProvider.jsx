@@ -10,7 +10,11 @@ export const useSocket = () => {
 
 export const SocketProvider = (props) => {
   const socket = useMemo(
-    () => io("https://penurious-clarissa-ungodly.ngrok-free.dev"),
+    () =>
+      io("https://penurious-clarissa-ungodly.ngrok-free.dev", {
+        transports: ["websocket"], // force websocket, avoids XHR polling
+        withCredentials: true,
+      }),
     []
   );
 
