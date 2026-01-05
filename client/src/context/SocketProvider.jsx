@@ -9,7 +9,10 @@ export const useSocket = () => {
 };
 
 export const SocketProvider = (props) => {
-  const socket = useMemo(() => io("http://3.133.161.113:8000"), []);
+  const socket = useMemo(
+    () => io("https://penurious-clarissa-ungodly.ngrok-free.dev"),
+    []
+  );
 
   return (
     <SocketContext.Provider value={socket}>
